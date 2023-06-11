@@ -1,0 +1,316 @@
+{% load static %}
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/cv_template.css' %}">
+</head>
+<body>
+
+    <h1 class="cv_header">CURRICULUM VITAE(CV)</h1>
+    <div class="row" style="width: 100%; height: 100%; background-color: #c7c792;">
+
+
+        {% if user_profile %}
+        {% for profile in user_profile %}
+
+
+         {% if profile.avator %}
+
+         <img src="{{ profile.avator.url }}" style="width: 15%; height: 15%; margin: 5px 5px 5px 5px;" alt="no image">  
+
+         {% else %}
+
+         <img src="{% static 'img/avator.png' %}" style="width: 15%; height: 15%; margin: 5px 5px 5px 5px;" alt="no image">  
+
+
+         {% endif %}
+
+       <div  style="float: right; padding-right: 60%;">
+        <div class="basic-info">
+       <h1 >{{ profile.fname}} {{ profile.mname}} {{ profile.lname}}</h1>
+            
+       <p>{{ profile.occupation}}</p>
+       <p>{{ profile.country}} {{profile.region}}</p>
+       <p>{{ profile.email}}, {{profile.phone}}</p>
+
+        </div>
+
+       
+        
+    </div>
+
+    </div>
+
+    
+    <hr class="divider_line"  style="color: #242424; border-top: medium double green; margin-top: 150px;"/>
+
+    <h1 style="margin: 0; padding-top: 25px;">Biography</h1>
+    <p class="bio">{{ profile.bio }}</p>
+
+
+    {% endfor %}
+    {% endif %}
+
+    <br/>
+    <br/>
+    <br/>
+
+
+    <h1 style="margin: 0;">My Skills</h1>
+    <table class="table" id="table_skill">
+        <thead>
+            <tr>
+                <th style="background-color: #0087C3; width: 10%;">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Level</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user_skill %}
+            {% for skill in user_skill %}
+
+
+            <tr>
+                <th style="background-color: #0087C3; width: 10%;">{{ forloop.counter}}</th>
+                <th scope="col">{{ skill.s_name }}</th>
+                <th scope="col">{{ skill.s_level }}</th>
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+
+
+    <h1 style="margin: 0;">Education Background</h1>
+    <table class="table" id="table_skill">
+        <thead>
+            <tr>
+                <th style="background-color: #57B223; width: 10%;">#</th>
+                <th scope="col">Institution</th>
+                <th scope="col">Year</th>
+                <th scope="col">Award</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user_education %}
+            {% for educa in user_education %}
+
+
+            <tr>
+                <th style="background-color: #57B223; width: 10%;">{{ forloop.counter}}</th>
+                <th scope="col">{{ educa.a_institution }}</th>
+                <th scope="col">{{ educa.a_year }}</th>
+                <th scope="col">{{ educa.a_award }}</th>
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+
+
+
+    <h1 style="margin: 0;">Referees</h1>
+    <table class="table" id="table_skill">
+        <thead>
+            <tr>
+                <th style="background-color: #0087C3;">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if user_referee %}
+            {% for referee in user_referee %}
+
+
+            <tr>
+                <th style="background-color: #0087C3;">{{ forloop.counter}}</th>
+                <th scope="col">{{ referee.r_name }}</th>
+                <th scope="col">{{ referee.r_email }}</th>
+                <th scope="col">{{ referee.r_phone }}</th>
+
+            </tr>
+
+            {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+
+
+
+    <p style="padding-bottom: 150px;"></p>
+</body>
+</html>-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Template1</title>
+<style>
+
+      
+	.side1{
+        padding-top:1pc;
+        padding-right:4pc;
+
+        width:50pc;
+        background-color:#e0eae9;
+        padding-left: 33pc;
+        }
+    .side{
+		border: 0cm;
+		margin-top: 1pc;
+		height:72.6pc;
+		width: 24pc;
+		background-color: #4EB9E6;
+		padding: 50px;
+        margin-left:1pc;
+		float:left;
+	@media screen and (max-width:600px){
+		body{
+			color: rebeccapurple;
+		}
+	}
+	.i{
+		text-align: center;
+	}
+	h1{
+        background-color:blue;
+        border-radius:1pc;
+    }
+
+</style>
+
+<div class="side">
+    <p style="text-align: center;">
+       
+        {% if user_profile %}
+        {% for profile in user_profile %}
+
+
+         {% if profile.avator %}
+
+         <img src="{{ profile.avator.url }}" style="width: 50%; height: 30%; margin: 5px 5px 5px 5px;" alt="no image">  
+
+         {% else %}
+
+         <img src="{% static 'img/avator.png' %}" style="width: 15%; height: 15%; margin: 5px 5px 5px 5px;" alt="no image">  
+
+
+         {% endif %}
+       
+     <!--<p><h3>{{ profile.occupation}}</h3></p>  -->
+    <!--<p class="i"><h1>{{ profile.fname}} {{ profile.mname}} {{ profile.lname}}</h1></p><hr>--><hr>
+    <p><h1 style="background-color:lightblue;
+        border-radius:2pc;text-align:center;">Contact</h1></p>
+    <p><img src="/static/img/email.png" alt="" height="3%" width="3%">&nbsp;&nbsp;{{ profile.email}} </p>
+    <p><img src="/static/img/phone.png" alt="" height="3%" width="3%">&nbsp;&nbsp;{{profile.phone}}</p>
+    <p><img src="/static/img/add.png" alt="" height="3%" width="3%">&nbsp;&nbsp;{{ profile.country}} {{profile.region}}</p><hr>
+    <p><h1 style="background-color:lightblue;
+        border-radius:2pc;text-align:center;">Personal Detail</h1></p>
+    
+        DOB:&nbsp;{{ profile.dob }}<br>Gender:&nbsp;{{ profile.gender }}<hr>
+    
+    {% endfor %}
+    {% endif %}
+
+
+    
+    <p><h1 style="background-color:lightblue;
+        border-radius:2pc;text-align:center;">Skills</h1></p>
+    
+        {% if user_skill %}
+            {% for skill in user_skill %}
+        
+       <p> {{ forloop.counter}}.&nbsp;{{ skill.s_name }} &nbsp;&nbsp;&nbsp;&nbsp; {{ skill.s_level }}</p>
+    
+    
+    {% endfor %}
+            {% endif %}
+
+        <hr>
+    <!--<p><h1 style="background-color:lightblue;
+        border-radius:2pc;text-align:center;">Achievements</h1></p>
+    <ul>
+        
+    {{i.acheivement}} </ul><hr>-->
+    
+    </div>
+
+    {% for profile in user_profile %}
+    <div class="side1"><div style="height=6pc;background-color:lightblue;font-size:2pc;padding-left:2pc;padding-bottom:0pc;"><br> <p class="i"><h1>{{ profile.fname}}<br> {{ profile.mname}} {{ profile.lname}}</h1><h4 style="margin-top:0%;color:white;">{{ profile.occupation}}</h4></p><br></div><br><h1 style="background-color:#bde5cb;
+        border-radius:2pc;text-align:center;">Objective</h1> 
+    <p>{{ profile.bio }}</p><hr>
+    {% endfor %}
+    
+    <h1 style="background-color:#bde5cb;
+    border-radius:2pc;text-align:center;">Qualifications</h1>
+
+    {% if user_education %}
+    {% for educa in user_education %}
+
+    
+   <b> {{ forloop.counter}}.&nbsp;{{ educa.a_institution }}</b><br>&nbsp;&nbsp;&nbsp;&nbsp; {{ educa.a_year }}&nbsp;&nbsp;&nbsp;&nbsp;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ educa.a_award }}<hr>
+    {% endfor %}
+    {% endif %}
+
+    
+    
+    <h1 style="background-color:#bde5cb;
+                border-radius:2pc;text-align:center;">Internship/Seminar/Workshop Done</h1>
+           {% if user_referee %}
+            {% for referee in user_referee %}
+
+           <!-- <p>Name</p>
+                <p>Email</p>
+                <p>Phone</p>
+            
+                <th style="background-color: #0087C3;">{{ forloop.counter}}</th>
+                <p>{{ referee.r_name }}</p>
+                <p>{{ referee.r_email }}</p>
+                <p>{{ referee.r_phone }}</p>-->
+
+                
+               <p><b style="font-size:1.5pc;"> {{ forloop.counter}}.&nbsp;{{ referee.r_name }}</b>&nbsp;<br>{{ referee.r_phone }}<br>{{ referee.r_email }}</p>
+
+            {% endfor %}
+            {% endif %}
+<hr>
+           
+          <!--  {% if user_skill %}
+            {% for skill in user_skill %}
+    <h1 style="background-color:#bde5cb;
+    border-radius:2pc;text-align:center;">Internship Done</h1>
+	{{ forloop.counter}}.&nbsp;<b>{{ skill.s_naame }}</b> : {{ skill.s_in }}<br>
+    <hr>
+    
+    {% endfor %}
+            {% endif %}-->
+    <h1 style="background-color:#bde5cb;
+    border-radius:2pc;text-align:center;">Declaration</h1>
+    <p >I hereby declare that the above information is true and accurate to the best of my knowledge. I 
+        understand that statements or omissions may disqualify me from further consideration for employment.
+        </p><hr><br>
+        <br><br>
+	<div class="dt"><p><b>Date</b> :&nbsp; </p>
+	
+	</div></div>
+</div>
+
+</body>
+</html>

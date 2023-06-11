@@ -1,0 +1,110 @@
+{% include 'core/navbar.html' %}
+{% load static %}
+<style>
+  body{ 
+    background-color:#262833;
+  }
+</style>
+<div class="d-flex" style="padding:0pc;">
+      
+  <div class="p-2 w-100 text-light"> <figure class="text-end">
+    <blockquote class="blockquote">
+      <div style="margin:0.5pc;">
+        <h1  style="font-family:Georgia, 'Times New Roman', Times, serif; text-shadow:6px 6px 4px rgb(0,0,0,0.4); text-align:left;color:lightgreen;" >Build Your Amazing Resume</h1>
+
+        <p   style="font-family:Georgia, 'Times New Roman'; text-align:left;"  class="welcome_text text-light">A Simple & Quick Way To Create A New Resume</p>
+        <p   style="font-family:Georgia, 'Times New Roman';text-align:left;" class="welcome_text text-light">Fill In The Blank Form, Generate And Download PDF Resume </p><br>
+       
+        {% if status == 'there_is_cv' %}
+        <div style="display:flex; justify-content:left; margin:0.5pc;">
+        <a href="{% url 'createcv' %}">
+         <button style=" box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2), 0 9px 4px 0 rgba(0, 0, 0, 0.201);" class="btn btn-primary">Create Resume</button>
+        </a>
+        
+
+     <a href="{% url 'cv-detail'  id=request.user.cv.id %}">
+         <button style=" box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2), 0 9px 4px 0 rgba(0, 0, 0, 0.201); text-decoration:none;"class="btn btn-info">View Resume</button>
+     </a>
+
+       <a href="{% url 'cv-edit' %}">
+         <button style=" box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2), 0 9px 4px 0 rgba(0, 0, 0, 0.201);text-decoration:none;"class="btn btn-danger">Edit Resume</button>
+     </a>
+
+
+     <a href="{% url 'cv-download' id=request.user.cv.id %}">
+       <button style=" box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2), 0 9px 4px 0 rgba(0, 0, 0, 0.201);text-decoration:none;"class="btn btn-warning">Download Resume</button>
+   </a>
+
+        {% else %}
+        <a href="{% url 'createcv' %}">
+         <button style=" box-shadow: 0 16px 8px 0 rgba(0,0,0,0.2), 0 9px 4px 0 rgba(0, 0, 0, 0.201);text-decoration:none;float:left;" class="btn btn-primary">Create Resume</button>
+        </a>
+
+        {% endif %}
+
+     </div>
+    </div>
+  </blockquote>
+
+  </figure></div>
+  <div class="opacity-25">
+    <div class="text-center py-0.9 rounded">
+      <div class="col pt-2">
+      <div class="container-fluid py-0.9">
+      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="shadow-lg p-3  mb-5 bg-body-tertiary rounded">
+        <div class="carousel-inner rounded">
+          <div class="carousel-item active rounded" data-bs-interval="10">
+            <img src="/static/img/c.jpg"  alt="..." height="400" width="600">
+           <div class="carousel-caption d-none d-md-block text-light">
+              <h5 >Pre Designed Templates</h5>
+              <p>Get well designed and attractive templates.</p>
+            </div>
+          </div>
+     <div class="carousel-item rounded" data-bs-interval="2000">
+      <img src="/static/img/b.jpg"  alt="..." height="400" width="600">
+      <div class="carousel-caption d-none d-md-block ">
+        <h5>Get Suggestions</h5>
+        <p>Get suggestion as per your fields.</p>
+      </div>
+    </div>
+    <div class="carousel-item rounded">
+      <img src="/static/img/a.jpg"  alt="..." height="400" width="600">
+      <div class="carousel-caption d-none d-md-block text-light">
+        <h5>Create Error Free Resume</h5>
+        <p>Use samples, intelligence, recommendations and many more.</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleLight" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+                    {% include 'core/footer.html' %}
+                  </div>
+               </div>
+           </div>
+       </div>
+     </div>
+</div>
+
+
+
+
+
